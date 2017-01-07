@@ -9,7 +9,7 @@
 	  <version>0.0.2-SNAPSHOT</version>
 	  <relativePath>parent_pom.xml</relativePath>
   </parent> -->
-  <name>WedingPhoto</name>
+  <name>WeddingPhoto_mobile</name>
   <packaging>war</packaging>
   <description>WeddingPhoto_mobile</description>
   <properties>
