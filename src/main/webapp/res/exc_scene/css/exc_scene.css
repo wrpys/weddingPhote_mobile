@@ -1,0 +1,27 @@
+.exc_scene_div{
+    width: 96%;position: relative;
+    height: 100%; padding: 2%;
+    /*border-radius:0px 90px 0px 0 / 0px 40px 0 0;*/
+    transition:all 0.3s linear 0s;
+    box-shadow:5px 2px 8px black;
+    overflow:hidden;
+    margin: 10px 0px;
+}
+.exc_scene_div .exc_scene_header{
+    width: 90%;
+    height: 30px;
+    background-color: #ebf1eb;
+    padding: 0px 5%; line-height: 30px;
+}
+.exc_scene_div .exc_scene_img{
+    width: 100%;
+}
+.exc_scene_img img{
+    width: 100%;
+}
+.exc_scene_point{
+    position: absolute;
+    display: block;
+}
+
+

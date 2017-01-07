@@ -1,0 +1,72 @@
+.kezhao ul li .kezhao_info_div{
+    width: 100%;
+    height: 215px;
+    position: relative;
+}
+.kezhao_pro_div{
+    position: relative;
+    width: 100%;
+    height: 215px;
+}
+.kezhao ul li .kezhao_pro_div figcaption.left_figcaption{
+    position: absolute;
+    top: 15px;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #777;
+    width: 95%;
+    text-align: left;
+    padding:4px 0px 4px 5%;
+}
+
+.kezhao ul li .kezhao_pro_div figcaption.right_figcaption{
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #777;
+    width: 95%;
+    text-align: right;
+    padding:4px 5% 4px 0px;
+}
+
+.kezhao ul li .kezhao_pro_div blockquote{
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    padding: 5px 5px;
+    margin: 0 0 10px;
+    font-size: 12px;
+    border-left: 5px solid #eee;
+    color: #000;
+}
+
+.dianzan_div{
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(245, 160, 160);
+}
+.dianzan_div i{
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 30px;height: 30px;
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 4px;
+    line-height: 30px;
+}
+.dianzan_div span{
+    height: 100%;width: 100%;
+    text-align: center;display: block;line-height: 40px;
+    color: #fff;
+}

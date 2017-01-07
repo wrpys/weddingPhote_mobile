@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ssmdemo.dao.ComboImgDao" >
+  <resultMap id="BaseResultMap" type="ssmdemo.model.ComboImg" >
+    <id column="img_id" property="imgId" jdbcType="INTEGER" />
+    <result column="combo_id" property="comboId" jdbcType="INTEGER" />
+    <result column="img_type" property="imgType" jdbcType="INTEGER" />
+    <result column="img_name" property="imgName" jdbcType="VARCHAR" />
+    <result column="img_desc" property="imgDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    img_id, combo_id, img_type, img_name, img_desc
+  </sql>
+  <sql id="inc_whereClause" >
+    <where>
+		<if test="imgId!=null"> and t.IMG_ID = #{imgId}</if>
+		<if test="comboId!=null"> and t.COMBO_ID = #{comboId}</if>
+		<if test="imgType!=null"> and t.IMG_TYPE = #{imgType}</if>
+		<if test="imgName!=null"> and t.IMG_NAME = #{imgName}</if>
+		<if test="imgDesc!=null"> and t.IMG_DESC = #{imgDesc}</if>
+	</where>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_combo_img
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_combo_img
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="ssmdemo.model.ComboImg" >
+    insert into t_combo_img (img_id, combo_id, img_type, 
+      img_name, img_desc)
+    values (#{imgId,jdbcType=INTEGER}, #{comboId,jdbcType=INTEGER}, #{imgType,jdbcType=INTEGER}, 
+      #{imgName,jdbcType=VARCHAR}, #{imgDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="ssmdemo.model.ComboImg" >
+    insert into t_combo_img
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="imgId != null" >
+        img_id,
+      </if>
+      <if test="comboId != null" >
+        combo_id,
+      </if>
+      <if test="imgType != null" >
+        img_type,
+      </if>
+      <if test="imgName != null" >
+        img_name,
+      </if>
+      <if test="imgDesc != null" >
+        img_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="imgId != null" >
+        #{imgId,jdbcType=INTEGER},
+      </if>
+      <if test="comboId != null" >
+        #{comboId,jdbcType=INTEGER},
+      </if>
+      <if test="imgType != null" >
+        #{imgType,jdbcType=INTEGER},
+      </if>
+      <if test="imgName != null" >
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgDesc != null" >
+        #{imgDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="ssmdemo.model.ComboImg" >
+    update t_combo_img
+    <set >
+      <if test="comboId != null" >
+        combo_id = #{comboId,jdbcType=INTEGER},
+      </if>
+      <if test="imgType != null" >
+        img_type = #{imgType,jdbcType=INTEGER},
+      </if>
+      <if test="imgName != null" >
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgDesc != null" >
+        img_desc = #{imgDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ssmdemo.model.ComboImg" >
+    update t_combo_img
+    set combo_id = #{comboId,jdbcType=INTEGER},
+      img_type = #{imgType,jdbcType=INTEGER},
+      img_name = #{imgName,jdbcType=VARCHAR},
+      img_desc = #{imgDesc,jdbcType=VARCHAR}
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </update>
+  <select id="findByParams" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from t_combo_img t
+    <include refid="inc_whereClause"/>
+    order by t.img_name asc
+  </select>
+</mapper>

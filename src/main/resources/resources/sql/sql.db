@@ -1,0 +1,38 @@
+/*Table structure for table `t_combo` */
+
+DROP TABLE IF EXISTS `t_combo`;
+
+CREATE TABLE `t_combo` (
+  `combo_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `type` int(11) DEFAULT NULL COMMENT '类别，1：套餐，2：客照',
+  `combo_name` varchar(64) DEFAULT NULL COMMENT '套餐名',
+  `click_like_num` int(11) DEFAULT '0' COMMENT '点赞次数',
+  `price` int(11) DEFAULT '0' COMMENT '价格',
+  `original_price` int(11) DEFAULT '0' COMMENT '原价',
+  `img_path` varchar(30) DEFAULT 'images' COMMENT '图片存放文件夹',
+  `combo_desc` varchar(255) DEFAULT NULL COMMENT '描述',
+  `user_names` varchar(255) DEFAULT 'Mr &amp; Miss' COMMENT '客照名。例如：Mr蔡 &amp; Miss候',
+  `create_time` date DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`combo_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_combo` */
+
+insert  into `t_combo`(`combo_id`,`type`,`combo_name`,`click_like_num`,`price`,`original_price`,`img_path`,`combo_desc`,`user_names`,`create_time`) values (1,1,'套餐1',18,5999,7999,'/res/images/taocan1/','套餐1描述','Mr &amp; Miss',NULL),(2,1,'套餐2',3,4999,5599,'/res/images/taocan2/','套餐2描述','Mr &amp; Miss',NULL),(3,1,'套餐3',6,3999,4599,'/res/images/taocan3/','套餐3描述','Mr &amp; Miss',NULL),(4,1,'套餐4',9,4699,4999,'/res/images/taocan4/','套餐4描述','Mr &amp; Miss',NULL),(5,1,'套餐5',126,3599,3899,'/res/images/taocan5/','套餐5描述','Mr &amp; Miss',NULL),(6,1,'套餐6',3,2999,3299,'/res/images/taocan6/','套餐6描述','Mr &amp; Miss',NULL),(7,2,'客照1',0,0,0,'/res/images/kezhao1/','客照1描述','Mr王 &amp; Miss余','2016-05-06'),(8,2,'客照2',0,0,0,'/res/images/kezhao2/','客照2描述','Mr陈 &amp; Miss陈','2016-05-06'),(9,2,'客照3',0,0,0,'/res/images/kezhao3/','客照3描述','Mr陈 &amp; Miss郑','2016-05-06'),(10,2,'客照4',0,0,0,'/res/images/kezhao4/','客照4描述','Mr陈 &amp; Miss郑','2016-05-06'),(11,2,'客照5',0,0,0,'/res/images/kezhao5/','客照5描述','Mr陈 &amp; Miss郑','2016-05-06'),(12,2,'客照6',0,0,0,'/res/images/kezhao6/','客照6描述','Mr陈 &amp; Miss郑','2016-05-06'),(13,3,'独家1',0,0,0,'/res/images/dujia1/','独家1描述','Mr &amp; Miss','2016-05-06'),(14,3,'独家2',0,0,0,'/res/images/dujia2/','独家2描述','Mr &amp; Miss','2016-05-06'),(15,3,'独家3',0,0,0,'/res/images/dujia3/','独家3描述','Mr &amp; Miss','2016-05-06'),(16,3,'独家4',0,0,0,'/res/images/dujia4/','独家4描述','Mr &amp; Miss','2016-05-06'),(17,3,'独家5',0,0,0,'/res/images/dujia5/','独家5描述','Mr &amp; Miss','2016-05-06'),(18,3,'独家6',0,0,0,'/res/images/dujia6/','独家6描述','Mr &amp; Miss','2016-05-06');
+
+/*Table structure for table `t_combo_img` */
+
+DROP TABLE IF EXISTS `t_combo_img`;
+
+CREATE TABLE `t_combo_img` (
+  `img_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `combo_id` bigint(20) NOT NULL COMMENT '套餐ID',
+  `img_type` int(11) DEFAULT NULL COMMENT '图片类型,1:详情图',
+  `img_name` varchar(255) DEFAULT NULL COMMENT '图片名称',
+  `img_desc` varchar(255) DEFAULT NULL COMMENT '图片描述',
+  PRIMARY KEY (`img_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_combo_img` */
+
+insert  into `t_combo_img`(`img_id`,`combo_id`,`img_type`,`img_name`,`img_desc`) values (1,1,1,'detail1.jpg','套餐1的详情图，第一张'),(2,1,1,'detail2.jpg','套餐1的详情图，第二张'),(3,1,1,'detail3.jpg','套餐1的详情图，第三张'),(4,1,1,'detail4.jpg','套餐1的详情图，第四张'),(5,1,1,'detail5.jpg','套餐1的详情图，第五张'),(6,2,1,'detail1.jpg','套餐2的详情图，第一张'),(7,2,1,'detail2.jpg','套餐2的详情图，第二张'),(8,2,1,'detail3.jpg','套餐2的详情图，第三张'),(9,2,1,'detail4.jpg','套餐2的详情图，第四张'),(10,2,1,'detail5.jpg','套餐2的详情图，第五张'),(11,3,1,'detail1.jpg','套餐3的详情图，第一张'),(12,3,1,'detail2.jpg','套餐3的详情图，第二张'),(13,3,1,'detail3.jpg','套餐3的详情图，第三张'),(14,3,1,'detail4.jpg','套餐3的详情图，第四张'),(15,3,1,'detail5.jpg','套餐3的详情图，第五张'),(16,4,1,'detail1.jpg','套餐4的详情图，第一张'),(17,4,1,'detail2.jpg','套餐4的详情图，第二张'),(18,4,1,'detail3.jpg','套餐4的详情图，第三张'),(19,4,1,'detail4.jpg','套餐4的详情图，第四张'),(20,4,1,'detail5.jpg','套餐4的详情图，第五张'),(21,5,1,'detail1.jpg','套餐5的详情图，第一张'),(22,5,1,'detail2.jpg','套餐5的详情图，第二张'),(23,5,1,'detail3.jpg','套餐5的详情图，第三张'),(24,5,1,'detail4.jpg','套餐5的详情图，第四张'),(25,5,1,'detail5.jpg','套餐5的详情图，第五张'),(26,6,1,'detail1.jpg','套餐6的详情图，第一张'),(27,6,1,'detail2.jpg','套餐6的详情图，第二张'),(28,6,1,'detail3.jpg','套餐6的详情图，第三张'),(29,6,1,'detail4.jpg','套餐6的详情图，第四张'),(30,6,1,'detail5.jpg','套餐6的详情图，第五张'),(31,7,1,'detail1.jpg','客照1的详情图，第一张'),(32,7,1,'detail2.jpg','客照2的详情图，第二张'),(33,7,1,'detail3.jpg','客照3的详情图，第三张'),(34,7,1,'detail4.jpg','客照4的详情图，第四张'),(35,7,1,'detail5.jpg','客照5的详情图，第五张'),(36,8,1,'detail1.jpg','客照2的详情图，第一张'),(37,8,1,'detail2.jpg','客照2的详情图，第二张'),(38,8,1,'detail3.jpg','客照2的详情图，第三张'),(39,8,1,'detail4.jpg','客照2的详情图，第四张'),(40,8,1,'detail5.jpg','客照2的详情图，第五张'),(41,9,1,'detail1.jpg','客照3的详情图，第一张'),(42,9,1,'detail2.jpg','客照3的详情图，第二张'),(43,9,1,'detail3.jpg','客照3的详情图，第三张'),(44,9,1,'detail4.jpg','客照3的详情图，第四张'),(45,9,1,'detail5.jpg','客照3的详情图，第五张'),(46,10,1,'detail1.jpg','客照4的详情图，第一张'),(47,10,1,'detail2.jpg','客照4的详情图，第二张'),(48,10,1,'detail3.jpg','客照4的详情图，第三张'),(49,10,1,'detail4.jpg','客照4的详情图，第四张'),(50,10,1,'detail5.jpg','客照4的详情图，第五张'),(51,11,1,'detail1.jpg','客照5的详情图，第一张'),(52,11,1,'detail2.jpg','客照5的详情图，第二张'),(53,11,1,'detail3.jpg','客照5的详情图，第三张'),(54,11,1,'detail4.jpg','客照5的详情图，第四张'),(55,11,1,'detail5.jpg','客照5的详情图，第五张'),(56,12,1,'detail1.jpg','客照6的详情图，第一张'),(57,12,1,'detail2.jpg','客照6的详情图，第二张'),(58,12,1,'detail3.jpg','客照6的详情图，第三张'),(59,12,1,'detail4.jpg','客照6的详情图，第四张'),(60,12,1,'detail5.jpg','客照6的详情图，第五张'),(61,13,1,'detail1.jpg','独家1的详情图，第一张'),(62,13,1,'detail2.jpg','独家1的详情图，第二张'),(63,13,1,'detail3.jpg','独家1的详情图，第三张'),(64,13,1,'detail4.jpg','独家1的详情图，第四张'),(65,13,1,'detail5.jpg','独家1的详情图，第五张'),(66,14,1,'detail1.jpg','独家2的详情图，第一张'),(67,14,1,'detail2.jpg','独家2的详情图，第二张'),(68,14,1,'detail3.jpg','独家2的详情图，第三张'),(69,14,1,'detail4.jpg','独家2的详情图，第四张'),(70,14,1,'detail5.jpg','独家2的详情图，第五张'),(71,15,1,'detail1.jpg','独家3的详情图，第一张'),(72,15,1,'detail2.jpg','独家3的详情图，第二张'),(73,15,1,'detail3.jpg','独家3的详情图，第三张'),(74,15,1,'detail4.jpg','独家3的详情图，第四张'),(75,15,1,'detail5.jpg','独家3的详情图，第五张'),(76,16,1,'detail1.jpg','独家4的详情图，第一张'),(77,16,1,'detail2.jpg','独家4的详情图，第二张'),(78,16,1,'detail3.jpg','独家4的详情图，第三张'),(79,16,1,'detail4.jpg','独家4的详情图，第四张'),(80,16,1,'detail5.jpg','独家4的详情图，第五张'),(81,17,1,'detail1.jpg','独家5的详情图，第一张'),(82,17,1,'detail2.jpg','独家5的详情图，第二张'),(83,17,1,'detail3.jpg','独家5的详情图，第三张'),(84,17,1,'detail4.jpg','独家5的详情图，第四张'),(85,17,1,'detail5.jpg','独家5的详情图，第五张'),(86,18,1,'detail1.jpg','独家6的详情图，第一张'),(87,18,1,'detail2.jpg','独家6的详情图，第二张'),(88,18,1,'detail3.jpg','独家6的详情图，第三张'),(89,18,1,'detail4.jpg','独家6的详情图，第四张'),(90,18,1,'detail5.jpg','独家6的详情图，第五张');
